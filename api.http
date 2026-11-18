@@ -1,0 +1,24 @@
+### ConectaDoa · testes manuais da API
+### Com a API rodando (vp run api), clique em "Send Request" acima de cada bloco.
+@api = http://localhost:3000/api
+### Saúde da API e do banco
+GET {{api}}/health
+### Listar doadores
+GET {{api}}/doadores
+### Buscar um doador
+GET {{api}}/doadores/1
+### Doador que não existe (espera 404)
+GET {{api}}/doadores/999
+### Cadastrar doador (espera 201)
+POST {{api}}/doadores
+Content-Type: application/json
+{
+ "nome": "Beatriz Ramos",
+ "email": "beatriz@exemplo.com",
+ "telefone": "(11) 96666-1003"
+}
+### Cadastrar sem nome (espera 400)
+POST {{api}}/doadores
+Content-Type: application/json
+{ "email": "sem.nome@exemplo.com" }
+### (continua: e-mail repetido, editar, excluir, itens e doações)
